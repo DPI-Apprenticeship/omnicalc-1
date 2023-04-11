@@ -45,6 +45,8 @@ class ApplicationController < ActionController::Base
   end  
 
   def calculate_root
+    @num = params.fetch("number").to_f
+    @square_num = Math.sqrt(@num).round(3)
     render({ :template => "calculation_templates/root_results.html.erb"})
   end  
 

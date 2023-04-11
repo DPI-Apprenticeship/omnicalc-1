@@ -9,6 +9,6 @@ Rails.application.routes.draw do
   get("/payment/results", { :controller => "application", :action => "calculate_payment"})
 
   get("/square_root/new", { :controller => "application", :action => "blank_root_form" })
-  get("/square_root/results", { :controller => "application", :action => "calculate_root"})
+  get("/root/results", { :controller => "application", :action => "calculate_root"})
 
 end
