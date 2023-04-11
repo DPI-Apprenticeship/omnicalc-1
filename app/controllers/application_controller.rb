@@ -40,4 +40,12 @@ class ApplicationController < ActionController::Base
     render({ :template => "calculation_templates/monthly_payment.html.erb" }) 
   end
 
+  def blank_root_form
+    render({ :template => "calculation_templates/root_form.html.erb" })
+  end  
+
+  def calculate_root
+    render({ :template => "calculation_templates/root_results.html.erb"})
+  end  
+
 end
