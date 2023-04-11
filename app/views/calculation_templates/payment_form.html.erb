@@ -1,29 +1,27 @@
 <form action="/payment/results">
-  <div>
-    <label for="puma">
-      APR
-    </label>
-    <input id="puma" type="text" placeholder="E.g. 5.42" name="apr">
-  </div>
+    <label for="apr">APR</label>
+    <input id="apr"  placeholder="E.g. 5.42" name="apr">
+  <br>
 
-  <div>
     <label for="tiger">
       Number of years
     </label>
     <input id="tiger" type="text" placeholder="How many years to repay" name="years_pay">
-  </div>
 
-  <label for="tiger">
+  <br>
+  <label for="principal">
     Principal
   </label>
-  <input id="tiger" type="text" placeholder="How much principal" name="principal">
+  <input id="principal" type="text" placeholder="How much principal" name="principal">
+  <br>
+
   <button>
-  Calculate random number
-  </button>
+  Calculate monthly payment
+  </button> 
 </form>
 
 <%# if @result %>
-  <p><%#= @result %></p>
+  <%#= @result %>
 <%# end %>
 
 <a href="/calculation_templates/payment_results">

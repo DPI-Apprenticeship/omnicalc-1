@@ -14,33 +14,28 @@ class ApplicationController < ActionController::Base
   end
 
   def calculate_random
-    @lower = params.fetch("user_min").to_f
-    @upper = params.fetch("user_max").to_f
-    @result = rand(@lower..@upper) 
+    @min = params.fetch("user_min").to_f
+    @max = params.fetch("user_max").to_f
+    @result = rand(@min..@max) 
     render({ :template => "calculation_templates/random_results.html.erb" })
   end
 
   def blank_payment_form
-    #params[:apr] && params[:years] && params[:principal]
-    #@apr = params[:apr].to_f
-    #@years = params[:years]to_i
-    #@principal = params[:principal].to_f
+    render({ :template => "calculation_templates/payment_form.html.erb" }) 
+  end
 
-    @apr = params.fetch("apr").to_f
+  def calculate_payment
+    @apr = params.fetch("apr").to_i
     @years = params.fetch("years_pay").to_i
     @principal = params.fetch("principal").to_f
-    @result = fetch("monthly_payment").to_i
+    #@result = params.fetch("payment").to_s
 
     monthly_interest_rate = (@apr / 100) / 12
     total_number_of_payments = @years * 12
     numerator = monthly_interest_rate * (1 + monthly_interest_rate) ** total_number_of_payments
     denominator = ((1 + monthly_interest_rate) ** total_number_of_payments) - 1
-    monthly_payment = @principal * (numerator / denominator).round(2)
+    #payment = @principal * (numerator / denominator).round(4)
 
-    render({ :template => "calculation_templates/payment_form.html.erb" }) 
-  end
-
-  def calculate_payment
     render({ :template => "calculation_templates/monthly_payment.html.erb" }) 
   end
 
