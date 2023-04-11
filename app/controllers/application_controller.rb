@@ -21,15 +21,15 @@ class ApplicationController < ActionController::Base
   end
 
   def blank_payment_form
-    params[:apr] && params[:years] && params[:principal]
-    @apr = params[:apr].to_f
-    @years = params[:years]to_i
-    @principal = params[:principal].to_f
+    #params[:apr] && params[:years] && params[:principal]
+    #@apr = params[:apr].to_f
+    #@years = params[:years]to_i
+    #@principal = params[:principal].to_f
 
-   # @apr = params.fetch("apr").to_f
-    #@years = params.fetch("years_pay")to_i
-    #@principal = params.fetch("principal")to_f
-    #@result = fetch("monthly_payment")to_i
+    @apr = params.fetch("apr").to_f
+    @years = params.fetch("years_pay").to_i
+    @principal = params.fetch("principal").to_f
+    @result = fetch("monthly_payment").to_i
 
     monthly_interest_rate = (@apr / 100) / 12
     total_number_of_payments = @years * 12

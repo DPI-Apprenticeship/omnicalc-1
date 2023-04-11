@@ -1,12 +1,18 @@
 <form action="/payment/results">
-  <label for="puma">
-    APR
-  </label>
-  <input id="puma" type="text" placeholder="E.g. 5.42" name="apr">
-  <label for="tiger">
-    Number of years
-  </label>
-  <input id="tiger" type="text" placeholder="How many years to repay" name="years_pay">
+  <div>
+    <label for="puma">
+      APR
+    </label>
+    <input id="puma" type="text" placeholder="E.g. 5.42" name="apr">
+  </div>
+
+  <div>
+    <label for="tiger">
+      Number of years
+    </label>
+    <input id="tiger" type="text" placeholder="How many years to repay" name="years_pay">
+  </div>
+
   <label for="tiger">
     Principal
   </label>
@@ -16,8 +22,8 @@
   </button>
 </form>
 
-<% if @result %>
-  <p><%= @result %></p>
-<% end %>
+<%# if @result %>
+  <p><%#= @result %></p>
+<%# end %>
 
-<a href="/calculation_templates/payment_resluts">
+<a href="/calculation_templates/payment_results">
